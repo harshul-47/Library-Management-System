@@ -1,0 +1,36 @@
+<h1>Books</h1>
+
+<form method="GET">
+<input type="text" name="q" placeholder="Search book">
+<button type="submit">Search</button>
+</form>
+
+<br>
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Author</th>
+<th>ISBN</th>
+<th>Status</th>
+</tr>
+
+{% for book in books %}
+<tr>
+<td>{{book.title}}</td>
+<td>{{book.author}}</td>
+<td>{{book.isbn}}</td>
+<td>
+{% if book.available %}
+Available
+{% else %}
+Issued
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<a href="/">Home</a>
